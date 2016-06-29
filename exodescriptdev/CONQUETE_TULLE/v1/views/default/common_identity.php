@@ -11,14 +11,17 @@ use app\components\FormWidgets\DateWidget;
 use app\components\FormWidgets\YesNoWidget;
 use app\components\FormWidgets\ButtonWidget;
 
-        /* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
+/* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
 ?>
 <div class="row">
-    <div class="col-sm-6">
-        <?= $form->field($model, 'RS1')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Raison sociale 1') ?>
+    <div class="col-sm-4">
+        <?= $form->field($model, '_NOM_DIOCESE')->textInput(['readonly' => true])->label('Nom du diocèse') ?>
     </div>
-    <div class="col-sm-6">
-        <?= $form->field($model, 'RS2')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Raison sociale 2') ?>
+    <div class="col-sm-4">
+        <?= $form->field($model, '_NOM_EVEQUE')->textInput(['readonly' => true])->label('Nom de l\'évêque') ?>
+    </div>
+    <div class="col-sm-4">
+        <?= $form->field($model, '_PAROISSE')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Paroisse') ?>
     </div>
 </div> 
 <div class="row">
@@ -46,21 +49,23 @@ use app\components\FormWidgets\ButtonWidget;
     </div>        
 </div>
 <div class="row">
+    <div class="col-sm-6">
+        <?= $form->field($model, 'PAYS')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Pays') ?>
+    </div>
+    <div class="col-sm-6">
+        <?= $form->field($model, 'DATE_DE_NAISSANCE')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Année de naissance') ?>
+    </div>
+</div>
+<div class="row">
     <div class="col-sm-4">
         <?= $form->field($model, 'TEL1')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Téléphoné mobile') ?>
     </div>
     <div class="col-sm-4">
         <?= $form->field($model, 'TEL2')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Téléphone fixe') ?>
-    </div>        
-    <div class="col-sm-4">
-        <?= $form->field($model, 'TEL3')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Téléphone professionel') ?>
     </div>       
 </div>  
 <div class="row">
     <div class="col-sm-6">
         <?= $form->field($model, 'EMAIL1')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Adresse Email 1') ?>
-    </div>
-    <div class="col-sm-6">
-        <?= $form->field($model, 'EMAIL2')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Adresse Email 2') ?>
     </div>
 </div>     

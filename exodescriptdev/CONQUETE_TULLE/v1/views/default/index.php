@@ -64,13 +64,9 @@ $this->title = 'Nixxis Reporting & Tools';
             ])
             ?>              
 
-
-            <?=QualificationsWidget::widget(['type' => QualificationsWidget::NEGATIVES, 'datas' => $NixxisQualifications, 'model' => $model])?>
-            <div class="row" style=" margin-left: 0px; margin-right: 0px;">
-                <?= $form->field($model, 'COMMENTAIRE_APPEL')->textarea(['rows' => 3, 'readonly' => $model->scenario == 'RO' ? true : false]) ?>
-            </div>
-            <?= QualificationsWidget::widget(['type' => QualificationsWidget::NEUTRES, 'datas' => $NixxisQualifications, 'model' => $model])  ?>
-            <?=  QualificationsWidget::widget(['type' => QualificationsWidget::POSITIVES, 'datas' => $NixxisQualifications, 'model' => $model]) ?>
+            <?= QualificationsWidget::widget(['type' => QualificationsWidget::NEGATIVES, 'datas' => $NixxisQualifications, 'model' => $model]) ?>
+            <?= QualificationsWidget::widget(['type' => QualificationsWidget::NEUTRES, 'datas' => $NixxisQualifications, 'model' => $model]) ?>
+            <?= QualificationsWidget::widget(['type' => QualificationsWidget::POSITIVES, 'datas' => $NixxisQualifications, 'model' => $model]) ?>
         </div>
     </div>
     <?php ActiveForm::end(); ?>    

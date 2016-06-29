@@ -15,7 +15,6 @@ use app\components\FormWidgets\DateWidget;
 use app\components\FormWidgets\YesNoWidget;
 use app\components\FormWidgets\ButtonWidget;
 
-
 /* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
 ?>
 <script type="text/javascript" >
@@ -65,9 +64,172 @@ use app\components\FormWidgets\ButtonWidget;
             $NixxisQualification = $NixxisQualifications[$model_qualifications->qualificationId];
 
             switch ($model->scenario) {
-                // case '...' :
-                //      
-                //      break;
+                case 'APPARTENANCE_AUTRE_RELIGION' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getReligions(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'DECU_PAR_EGLISE' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getDecuParEglise(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'DON_AUTRE_ORGANISME' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getDonAutreOrganisme(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'DON_AUTRE_DIOCESE' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getDonAutreDiocese(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'PAS_CONCERNE' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getPasConcerne(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'RICHESSE_EGLISE' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getRichesseEglise(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'ANCIEN_DONATEUR_DECU' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-6">';
+                    echo $form->field($model, '_RAISON_REFUS')->dropDownList($model::getAncienDonateurDecu(), ['prompt' => '--Select--'])->label('');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'REFUS_AUTRE' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-12">';
+                    echo $form->field($model, '_RAISON_REFUS')->textarea(['rows' => 3, 'maxlength' => '255'])->label('Attention, limite à 255 charactères');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'PAM' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>CREATION D\'UN PRELEVEMENT AUTOMATIQUE</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-12">';
+                    echo $form->field($model, 'N_MONTANT')->textInput()->label('Montant du Prélévement');
+
+                    echo $form->field($model, 'N_PERIODICITE')->dropDownList($model::getPeriodicite(), ['prompt' => '--Select--'])->label('Nouveau cycle');
+                    //echo $form->field($model, 'N_DATEPA')->textInput()->label('Date du prochain Prélévement');
+                    echo '<label class="control-label" for=rown_datepa">Date du prochain prélévement</label>';
+                    echo '<div id="rown_datepa" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_DAY')->textInput()->label('Jour') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_MONTH')->dropDownList($model::getMonths(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Mois') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_YEAR')->dropDownList($model::getYears(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Année') . '</div>';
+                    echo '</div><br/>';
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '</div> 
+                    </div>';
+                    break;
+                case 'PA' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>CREATION D\'UN PRELEVEMENT AUTOMATIQUE SANS MONTANT</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-12">';
+                    echo '<label class="control-label" for=rown_datepa">Date du prochain prélévement</label>';
+                    echo '<div id="rown_datepa" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_DAY')->textInput()->label('Jour') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_MONTH')->dropDownList($model::getMonths(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Mois') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_YEAR')->dropDownList($model::getYears(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Année') . '</div>';
+                    echo '</div><br/>';
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '</div> 
+                    </div>';
+                    break;
+                case 'DSM' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>DON SIMPLE AVEC MONTANT</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-12">';
+                    echo $form->field($model, 'N_MONTANT')->textInput()->label('Montant du Prélévement');
+
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '</div> 
+                    </div>';
+                    break;
+                case 'DS' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>DON SIMPLE SANS MONTANT</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-12">';
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '</div> 
+                    </div>';
+                    break;
             }
 
             switch ($model_qualifications->scenario) {
