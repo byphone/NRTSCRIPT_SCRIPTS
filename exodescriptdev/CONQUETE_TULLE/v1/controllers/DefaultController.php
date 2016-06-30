@@ -64,7 +64,7 @@ class DefaultController extends \app\controllers\ScriptController {
                 break;
         }
 
-        if ($this->NixxisQualifications[$NixxisQualificationId]['Description'] == 'A RAPPELER') {
+        if ($this->NixxisQualifications[$NixxisQualificationId]['Description'] == 'A RAPPELER' || $this->NixxisQualifications[$NixxisQualificationId]['Description'] == 'RAPPEL PERSO') {
             $model_qualifications->scenario = 'CALLBACK';
         }
     }
