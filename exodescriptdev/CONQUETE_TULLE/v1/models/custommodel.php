@@ -50,6 +50,7 @@ class custommodel extends \app\models\Nixxis\Data {
             [['N_DATEPA_DAY', 'N_DATEPA_MONTH', 'N_DATEPA_YEAR', 'N_DATEPA', 'N_MONTANT', 'N_PERIODICITE'], 'required', 'on' => 'PAM', 'message' => 'Ce champs ne peut être vide'],
             [['N_DATEPA_DAY', 'N_DATEPA_MONTH', 'N_DATEPA_YEAR', 'N_DATEPA'], 'required', 'on' => 'PA', 'message' => 'Ce champs ne peut être vide'],
             [['N_MONTANT'], 'required', 'on' => 'DSM', 'message' => 'Ce champs ne peut être vide'],
+            [['_DEPOT_PAROISSE'], 'required', 'on' => 'DS', 'message' => 'Ce champs ne peut être vide'],
         ];
         return ArrayHelper::merge($p_rules, $rules);
     }
