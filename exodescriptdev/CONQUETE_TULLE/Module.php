@@ -11,7 +11,7 @@ class Module extends \app\scripts\Script {
     }
 
     public static function getName() {
-        return 'CONQUETE TULLE';
+        return 'CONQUETE';
     }
 
 }
