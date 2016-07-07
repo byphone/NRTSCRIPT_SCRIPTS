@@ -11,6 +11,9 @@ class custommodel extends \app\models\Nixxis\Data {
     public $N_DATEPA_DAY;
     public $N_DATEPA_MONTH;
     public $N_DATEPA_YEAR;
+    public $N_DATERETOUR_DAY;
+    public $N_DATERETOUR_MONTH;
+    public $N_DATERETOUR_YEAR;
 
     public function afterFind() {
         
@@ -29,6 +32,15 @@ class custommodel extends \app\models\Nixxis\Data {
         } else {
             $this->N_DATEPA = '';
         }
+
+        if ($this->scenario == 'PAM' || $this->scenario == 'PA' || $this->scenario == 'DSM' || $this->scenario == 'DS') {
+            if (!empty($this->N_DATERETOUR_DAY) && !empty($this->N_DATERETOUR_MONTH) && !empty($this->N_DATERETOUR_YEAR)) {
+                $this->_DATE_RETOUR = $this->N_DATERETOUR_DAY . '/' . $this->N_DATERETOUR_MONTH . '/' . $this->N_DATERETOUR_YEAR;
+            } else {
+                $this->_DATE_RETOUR = '';
+            }
+        }
+
         return true;
     }
 
@@ -38,7 +50,7 @@ class custommodel extends \app\models\Nixxis\Data {
     public function rules() {
         $p_rules = parent::rules();
         $rules = [
-            [['INTERLOCUTEUR', 'N_DATEPA_DAY', 'N_DATEPA_MONTH', 'N_DATEPA_YEAR'], 'safe'],
+            [['INTERLOCUTEUR', 'N_DATEPA_DAY', 'N_DATEPA_MONTH', 'N_DATEPA_YEAR', 'N_DATERETOUR_DAY', 'N_DATERETOUR_MONTH', 'N_DATERETOUR_YEAR'], 'safe'],
             [['_RAISON_REFUS'], 'required', 'on' => 'APPARTENANCE_AUTRE_RELIGION', 'message' => 'Ce champs ne peut être vide'],
             [['_RAISON_REFUS'], 'required', 'on' => 'DECU_PAR_EGLISE', 'message' => 'Ce champs ne peut être vide'],
             [['_RAISON_REFUS'], 'required', 'on' => 'DON_AUTRE_ORGANISME', 'message' => 'Ce champs ne peut être vide'],
