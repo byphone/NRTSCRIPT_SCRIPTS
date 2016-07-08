@@ -110,6 +110,16 @@ use app\components\FormWidgets\ButtonWidget;
                     echo '</div> 
                     </div>';
                     break;
+                case 'VA/DEJAENVOYE':
+//                    echo SelectWidget::widget(['label' => "Promesse", 'model' => $model, 'field' => 'NV_PROMESSE', 'form' => $form, 'data' => $model::getPromesses()]);
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>VA ENVOYER / DEJA ENVOYE</b></h5></div>
+                    </div>';
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    break;
             }
 
             switch ($model_qualifications->scenario) {

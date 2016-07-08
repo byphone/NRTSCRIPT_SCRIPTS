@@ -12,7 +12,7 @@ use app\components\FormWidgets\LabelWidget;
     <?= LabelWidget::widget(['label' => 'Identifiant :', 'model' => $model, 'field' => 'IDENTIFIANT1']) ?>    
     <?= LabelWidget::widget(['label' => 'Code Média  :', 'model' => $model, 'field' => 'CODE_MEDIA']) ?>
     <?= LabelWidget::widget(['label' => 'Interlocuteur  :', 'model' => $model, 'field' => '_INTERLOCUTEUR']) ?>
-    <?= LabelWidget::widget(['label' => 'Dépôt paroisse  :', 'model' => $model, 'value' => '_DEPOT_PAROISSE' == True ? 'Oui' : 'Non']) ?>
+    <?= LabelWidget::widget(['label' => 'Dépôt paroisse  :', 'model' => $model, 'value' => $model->_DEPOT_PAROISSE == True ? 'Oui' : 'Non']) ?>
     <?= LabelWidget::widget(['label' => 'Promesse :', 'model' => $model, 'field' => 'SOURCE_QUALIFICATION']) ?>
     <?= LabelWidget::widget(['label' => 'Montant :', 'model' => $model, 'field' => 'N_MONTANT']) ?>
     <?= LabelWidget::widget(['label' => 'Périodicité :', 'model' => $model, 'value' => $model->GetTextCycle($model->N_PERIODICITE)]) ?>  

@@ -26,6 +26,22 @@ class DefaultController extends \app\controllers\ScriptController {
                 $model->scenario = 'PROMESSE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
+            case '068ebcc4d30a41d2bea0b93a4af85099': //VA ENVOYER R1
+                $model->scenario = 'VA/DEJAENVOYE';
+                $model_qualifications->nextstep = 'qualifications';
+                break;
+            case '170ae3ce4f954905bd906bf356c63e84': //VA ENVOYER R2
+                $model->scenario = 'VA/DEJAENVOYE';
+                $model_qualifications->nextstep = 'qualifications';
+                break;
+            case 'f0798e4e140c4601a859b1bba83fc430': //DEJA ENVOYE R1
+                $model->scenario = 'VA/DEJAENVOYE';
+                $model_qualifications->nextstep = 'qualifications';
+                break;
+            case '7a5cfefbe687462d947fe3519bfc9367': //DEJA ENVOYE R2
+                $model->scenario = 'VA/DEJAENVOYE';
+                $model_qualifications->nextstep = 'qualifications';
+                break;
         }
 
         if ($this->NixxisQualifications[$NixxisQualificationId]['Description'] == 'A RAPPELER' || $this->NixxisQualifications[$NixxisQualificationId]['Description'] == 'RAPPEL PERSO') {

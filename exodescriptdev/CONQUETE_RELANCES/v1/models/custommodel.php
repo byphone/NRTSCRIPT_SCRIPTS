@@ -13,6 +13,7 @@ class custommodel extends \app\models\Nixxis\Data {
     public $N_DATERETOUR_DAY;
     public $N_DATERETOUR_MONTH;
     public $N_DATERETOUR_YEAR;
+    public $INTERLOCUTEUR;
 
     public function afterFind() {
         
@@ -20,6 +21,10 @@ class custommodel extends \app\models\Nixxis\Data {
 
     public function beforeValidate() {
         parent::beforeValidate();
+
+        if ($this->_INTERLOCUTEUR == 'AUTRE') {
+            $this->_INTERLOCUTEUR = $this->_INTERLOCUTEUR . " : " . $this->INTERLOCUTEUR;
+        }
 
         if ($this->NV_PROMESSE == 'PA' || $this->NV_PROMESSE == 'PAM') {
             $this->NV_DATEPA = $this->N_DATEPA_DAY . '/' . $this->N_DATEPA_MONTH . '/' . $this->N_DATEPA_YEAR;
@@ -43,9 +48,11 @@ class custommodel extends \app\models\Nixxis\Data {
     public function rules() {
         $p_rules = parent::rules();
         $rules = [
-            [['N_DATEPA_DAY', 'N_DATEPA_MONTH', 'N_DATEPA_YEAR', 'N_DATERETOUR_DAY', 'N_DATERETOUR_MONTH', 'N_DATERETOUR_YEAR'], 'safe'],
+            [['INTERLOCUTEUR', 'N_DATEPA_DAY', 'N_DATEPA_MONTH', 'N_DATEPA_YEAR', 'N_DATERETOUR_DAY', 'N_DATERETOUR_MONTH', 'N_DATERETOUR_YEAR'], 'safe'],
             [['NV_MONTANT'], 'double', 'message' => 'La valeur doit être un montant valide'],
-            [['NV_PROMESSE', 'NV_MONTANT'], 'required', 'on' => 'PROMESSE', 'message' => 'Ce champs ne peut être vide'],
+            [['NV_PROMESSE'], 'required', 'on' => 'PROMESSE', 'message' => 'Ce champs ne peut être vide'],
+            [['_DEPOT_PAROISSE'], 'required', 'on' => 'VA/DEJAENVOYE', 'message' => 'Ce champs ne peut être vide'],
+            [['_RAISON_REFUS'], 'required', 'on' => 'REFUS_AUTRE', 'message' => 'Ce champs ne peut être vide'],
         ];
         return ArrayHelper::merge($p_rules, $rules);
     }
@@ -139,6 +146,15 @@ class custommodel extends \app\models\Nixxis\Data {
             }
         }
         return $tmp;
+    }
+
+    public static function getInterlocuteur() {
+        return [
+            '' => '',
+            'M' => 'Monsieur',
+            'MME' => 'Madame',
+            'AUTRE' => 'Autre',
+        ];
     }
 
 }

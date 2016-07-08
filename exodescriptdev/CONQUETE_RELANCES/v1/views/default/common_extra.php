@@ -19,10 +19,27 @@ use \app\scripts\CONQUETE_RELANCES\v1\models\custommodel;
 ?>
 
 <?= LineWidget::widget() ?>
-<div id ="blockinfosdon" class="row">
+<div id ="blockcomapp" class="row">
     <div class="col-sm-12">
         <?= LabelWidget::widget(['label' => 'Commentaire du premier appel', 'model' => $model, 'field' => 'COMMENTAIRE_APPEL']) ?>
         <br/>
+    </div>
+</div>
+<div id ="blockcomdon" class="row">
+    <div class="col-sm-12">
+        <?= LabelWidget::widget(['label' => 'Commentaire donateur', 'model' => $model, 'field' => 'COMMENTAIRE_DONATEUR']) ?>
+        <br/>
+    </div>
+</div>
+<?= LineWidget::widget() ?>
+<div id ="blockinterlocuteur" class="row"> 
+    <div class="col-sm-3">
+        <?=
+        $form->field($model, '_INTERLOCUTEUR')->dropDownList(custommodel::getInterlocuteur())->label('Interlocuteur');
+        ?>    
+    </div>
+    <div class="col-sm-9">
+        <?= $form->field($model, 'INTERLOCUTEUR')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Si autre :') ?>
     </div>
 </div>
 <div id ="blockquestion" class="row"> 
@@ -36,4 +53,5 @@ use \app\scripts\CONQUETE_RELANCES\v1\models\custommodel;
         $form->field($model, '_IMAGE_EVEQUE')->dropDownList(custommodel::getImageEveque())->label('Image de l\'évêque');
         ?>    
     </div>
+
 </div>
