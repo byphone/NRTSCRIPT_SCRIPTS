@@ -66,6 +66,8 @@ use yii\helpers\ArrayHelper;
  * @property integer $_DEPOT_PAROISSE
  * @property string $_INTERLOCUTEUR
  * @property string $_DATE_RETOUR
+ * @property string $ID_RELANCE
+ * @property integer $_CONNAIT_LE_DENIER
  */
 class DATAD23ae816bcf9448da425439c18f6d52b extends custommodel {
 
@@ -90,8 +92,8 @@ class DATAD23ae816bcf9448da425439c18f6d52b extends custommodel {
         $p_rules = parent::rules();
         $rules = [
             [['Internal__id__'], 'required'],
-            [['Internal__id__', 'CODE_MEDIA', 'IDENTIFIANT1', 'IDENTIFIANT2', 'RS1', 'RS2', 'CIV', 'NOM', 'PRENOM', 'ADR1', 'ADR2', 'NUMERO_DE_RUE', 'CODE_BIS', 'ADR3', 'ADR4', 'CP', 'VILLE', 'PAYS', 'EMAIL1', 'EMAIL2', 'TEL1', 'TEL2', 'TEL3', 'DATE_DE_NAISSANCE', 'FILTRE', 'PRIORITE', 'COMMENTAIRE_APPEL', 'COMMENTAIRE_DONATEUR', 'A_MONTANT', 'A_PERIODICITE', 'A_DATEPA', 'N_MONTANT', 'N_PERIODICITE', 'N_DATEPA', 'RETOUR_FLAG', 'RETOUR_DATEIMPORT', 'RETOUR_NOMFICHIER', 'RETOUR_PROMESSE', 'RETOUR_MONTANT', 'RETOUR_PERIODICITE', 'RETOUR_COUPON', 'RETOUR_DATESIGNATURE', 'RETOUR_DATESAISIE', 'RETOUR_JOURPRELEVEMENT', 'RETOUR_PREMIERPRELEVEMENT', 'RETOUR_CATHEORIQUE', '_NOM_EVEQUE', '_IMAGE_EVEQUE', '_FREQUENTATION_EGLISE', '_PAROISSE', '_NOM_DIOCESE', '_RAISON_REFUS', '_INTERLOCUTEUR', '_DATE_RETOUR'], 'string'],
-            [['MODIF_ADRESSE', 'MODIF_EMAIL', 'MODIF_TEL', '_DEPOT_PAROISSE'], 'integer']
+            [['Internal__id__', 'CODE_MEDIA', 'IDENTIFIANT1', 'IDENTIFIANT2', 'RS1', 'RS2', 'CIV', 'NOM', 'PRENOM', 'ADR1', 'ADR2', 'NUMERO_DE_RUE', 'CODE_BIS', 'ADR3', 'ADR4', 'CP', 'VILLE', 'PAYS', 'EMAIL1', 'EMAIL2', 'TEL1', 'TEL2', 'TEL3', 'DATE_DE_NAISSANCE', 'FILTRE', 'PRIORITE', 'COMMENTAIRE_APPEL', 'COMMENTAIRE_DONATEUR', 'A_MONTANT', 'A_PERIODICITE', 'A_DATEPA', 'N_MONTANT', 'N_PERIODICITE', 'N_DATEPA', 'RETOUR_FLAG', 'RETOUR_DATEIMPORT', 'RETOUR_NOMFICHIER', 'RETOUR_PROMESSE', 'RETOUR_MONTANT', 'RETOUR_PERIODICITE', 'RETOUR_COUPON', 'RETOUR_DATESIGNATURE', 'RETOUR_DATESAISIE', 'RETOUR_JOURPRELEVEMENT', 'RETOUR_PREMIERPRELEVEMENT', 'RETOUR_CATHEORIQUE', '_NOM_EVEQUE', '_IMAGE_EVEQUE', '_FREQUENTATION_EGLISE', '_PAROISSE', '_NOM_DIOCESE', '_RAISON_REFUS', '_INTERLOCUTEUR', '_DATE_RETOUR', 'ID_RELANCE'], 'string'],
+            [['MODIF_ADRESSE', 'MODIF_EMAIL', 'MODIF_TEL', '_DEPOT_PAROISSE', '_CONNAIT_LE_DENIER'], 'integer']
         ];
         return ArrayHelper::merge($p_rules, $rules);
     }
@@ -158,7 +160,9 @@ class DATAD23ae816bcf9448da425439c18f6d52b extends custommodel {
             '_RAISON_REFUS' => 'Raison  Refus',
             '_DEPOT_PAROISSE' => 'Depot  Paroisse',
             '_INTERLOCUTEUR' => 'Interlocuteur',
-            '_DATE_RETOUR' => 'Date  Retour'
+            '_DATE_RETOUR' => 'Date  Retour',
+            'ID_RELANCE' => 'Id  Relance',
+            '_CONNAIT_LE_DENIER' => 'Connait  Le  Denier',
         ];
     }
 

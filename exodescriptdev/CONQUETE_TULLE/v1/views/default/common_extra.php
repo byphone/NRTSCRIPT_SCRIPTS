@@ -26,6 +26,13 @@ use \app\scripts\CONQUETE_TULLE\v1\models\custommodel;
     <?= $form->field($model, 'COMMENTAIRE_DONATEUR')->textarea(['rows' => 3, 'readonly' => $model->scenario == 'RO' ? true : false]) ?>
 </div>
 <?= LineWidget::widget() ?>
+<div id ="blockdenier" class="row"> 
+    <div class="col-sm-6">
+        <?=
+        CheckBoxWidget::widget(['label' => 'Connait le denier ?', 'model' => $model, 'field' => '_CONNAIT_LE_DENIER', 'form' => $form]);
+        ?>    
+    </div>
+</div>
 <div id ="blockinterlocuteur" class="row"> 
     <div class="col-sm-3">
         <?=
