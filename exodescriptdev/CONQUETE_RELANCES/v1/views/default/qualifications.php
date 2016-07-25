@@ -107,6 +107,10 @@ use app\components\FormWidgets\ButtonWidget;
                     echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATERETOUR_MONTH')->dropDownList($model::getMonths(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Mois') . '</div>';
                     echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATERETOUR_YEAR')->dropDownList($model::getYears(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Année') . '</div>';
                     echo '</div><br/>';
+                    echo '<div id="rowrelances" class = "row" >';
+                    echo '<div class = "col-sm-6" style="color:red"> ' . CheckBoxWidget::widget(['label' => 'Cochez la case si la personne ne souhaite pas être relancé : ', 'model' => $model, 'field' => '_NE_PAS_RELANCER', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '</div><br/>';
                     echo '</div> 
                     </div>';
                     break;
@@ -118,6 +122,9 @@ use app\components\FormWidgets\ButtonWidget;
                     </div>';
                     echo '<div id="rown_depot_paroisse" class = "row" >';
                     echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '<div id="rowrelances" class = "row" >';
+                    echo '<div class = "col-sm-6" style="color:red"> ' . CheckBoxWidget::widget(['label' => 'Cochez la case si la personne ne souhaite pas être relancé : ', 'model' => $model, 'field' => '_NE_PAS_RELANCER', 'form' => $form]) . '</div>';
                     echo '</div>';
                     break;
             }

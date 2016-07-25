@@ -81,6 +81,7 @@ use yii\helpers\ArrayHelper;
  * @property string $_PAROISSE
  * @property string $_RAISON_REFUS
  * @property integer $_CONNAIT_LE_DENIER
+ * @property integer $_NE_PAS_RELANCER
  */
 class DATA2b02e8a0d7fb4a79a37bdaa12396c047 extends custommodel {
 
@@ -106,7 +107,7 @@ class DATA2b02e8a0d7fb4a79a37bdaa12396c047 extends custommodel {
         $rules = [
             [['Internal__id__'], 'required'],
             [['Internal__id__', 'CODE_MEDIA', 'IDENTIFIANT1', 'IDENTIFIANT2', 'RS1', 'RS2', 'CIV', 'NOM', 'PRENOM', 'ADR1', 'ADR2', 'NUMERO_DE_RUE', 'CODE_BIS', 'ADR3', 'ADR4', 'CP', 'VILLE', 'PAYS', 'EMAIL1', 'EMAIL2', 'TEL1', 'TEL2', 'TEL3', 'DATE_DE_NAISSANCE', 'FILTRE', 'PRIORITE', 'COMMENTAIRE_APPEL', 'COMMENTAIRE_DONATEUR', 'A_MONTANT', 'A_PERIODICITE', 'A_DATEPA', 'N_MONTANT', 'N_PERIODICITE', 'N_DATEPA', 'SOURCE_ID', 'SOURCE_ACCOUNT', 'SOURCE_DATETIME', 'SOURCE_QUALIFICATION', 'RETOUR_FLAG', 'RETOUR_DATEIMPORT', 'RETOUR_NOMFICHIER', 'RETOUR_PROMESSE', 'RETOUR_MONTANT', 'RETOUR_PERIODICITE', 'RETOUR_COUPON', 'RETOUR_DATESIGNATURE', 'RETOUR_DATESAISIE', 'RETOUR_JOURPRELEVEMENT', 'RETOUR_PREMIERPRELEVEMENT', 'RETOUR_CATHEORIQUE', '_FREQUENTATION_EGLISE', '_IMAGE_EVEQUE', '_NOM_DIOCESE', '_NOM_EVEQUE', 'COUNT', 'DATE_DERNIERE_RELANCE', 'COMMENTAIRE_DERNIERE_RELANCE', 'NB_JOUR_APPEL', 'NB_JOUR_RELANCE', 'TOCALL', 'NV_PROMESSE', 'NV_MONTANT', 'NV_PERIODICITE', 'NV_DATEPA', '_INTERLOCUTEUR', '_DATE_RETOUR', '_PAROISSE', '_RAISON_REFUS'], 'string'],
-            [['MODIF_ADRESSE', 'MODIF_EMAIL', 'MODIF_TEL', '_DEPOT_PAROISSE', '_CONNAIT_LE_DENIER'], 'integer']
+            [['MODIF_ADRESSE', 'MODIF_EMAIL', 'MODIF_TEL', '_DEPOT_PAROISSE', '_CONNAIT_LE_DENIER', '_NE_PAS_RELANCER'], 'integer']
         ];
         return ArrayHelper::merge($p_rules, $rules);
     }
@@ -189,6 +190,7 @@ class DATA2b02e8a0d7fb4a79a37bdaa12396c047 extends custommodel {
             '_PAROISSE' => 'Paroisse',
             '_RAISON_REFUS' => 'Raison  Refus',
             '_CONNAIT_LE_DENIER' => 'Connait  Le  Denier',
+            '_NE_PAS_RELANCER' => 'Ne  Pas  Relancer'
         ];
     }
 
