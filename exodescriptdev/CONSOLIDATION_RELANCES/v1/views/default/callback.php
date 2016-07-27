@@ -8,7 +8,7 @@ use kartik\time\TimePicker;
 use app\components\FormWidgets\ButtonWidget;
 use app\components\FormWidgets\LineWidget;
 
-/* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
+        /* @var $model \app\scripts\CONSOLIDATION_RELANCES\v1\models\DATAa7706e66190241b59f40f6962948ebab */
 ?>
 <script type="text/javascript" >
     function SetQualification(qualid) {
@@ -61,7 +61,7 @@ use app\components\FormWidgets\LineWidget;
                 'model' => $model,
             ])
             ?>   
-
+ 
             <?php
             $NixxisQualification = $NixxisQualifications[$model_qualifications->qualificationId];
             ?>

@@ -11,7 +11,7 @@ use app\components\FormWidgets\DateWidget;
 use app\components\FormWidgets\YesNoWidget;
 use app\components\FormWidgets\ButtonWidget;
 
-/* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
+/* @var $model \app\scripts\CONSOLIDATION_RELANCES\v1\models\DATAa7706e66190241b59f40f6962948ebab */
 ?>
 <div class="row">
     <div class="col-sm-4">
@@ -53,7 +53,7 @@ use app\components\FormWidgets\ButtonWidget;
         <?= $form->field($model, 'PAYS')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Pays') ?>
     </div>
     <div class="col-sm-6">
-        <?= $form->field($model, 'DATE_DE_NAISSANCE')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Année de naissance (AAAA)') ?>
+        <?= $form->field($model, 'DATE_DE_NAISSANCE')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Année de naissance') ?>
     </div>
 </div>
 <div class="row">

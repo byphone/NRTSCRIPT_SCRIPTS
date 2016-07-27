@@ -11,7 +11,7 @@ use app\components\FormWidgets\DateWidget;
 use app\components\FormWidgets\YesNoWidget;
 use app\components\FormWidgets\ButtonWidget;
 
-/* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
+/* @var $model \app\scripts\FIDELISATION\v1\models\DATAe83e8de996d34c41a2ce0f014aa5e23f */
 ?>
 <div class="row">
     <div class="col-sm-4">

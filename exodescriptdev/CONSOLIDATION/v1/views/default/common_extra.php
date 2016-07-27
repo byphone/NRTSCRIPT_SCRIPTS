@@ -12,27 +12,26 @@ use app\components\FormWidgets\YearWidget;
 use app\components\FormWidgets\SelectWidget;
 use app\components\FormWidgets\DateWidget;
 use app\components\FormWidgets\YesNoWidget;
-use app\scripts\CONQUETE_TULLE\v1\models\custommodel;
+use app\components\FormWidgets\LabelWidget;
+use \app\scripts\CONSOLIDATION\v1\models\custommodel;
 
-/* @var $model \app\scripts\CONQUETE_TULLE\v1\models\DATAd23ae816bcf9448da425439c18f6d52b */
+/* @var $model \app\scripts\CONSOLIDATION\v1\models\DATA1ef032b0751d46c1a7f8b29a935a5156 */
 ?>
 
 <?= LineWidget::widget() ?>
-<div class="row" style=" margin-left: 0px; margin-right: 0px;">
-    <?= $form->field($model, 'COMMENTAIRE_APPEL')->textarea(['rows' => 3, 'readonly' => $model->scenario == 'RO' ? true : false]) ?>
-</div>
-<?= LineWidget::widget() ?>
-<div class="row" style=" margin-left: 0px; margin-right: 0px;">
-    <?= $form->field($model, 'COMMENTAIRE_DONATEUR')->textarea(['rows' => 3, 'readonly' => $model->scenario == 'RO' ? true : false]) ?>
-</div>
-<?= LineWidget::widget() ?>
-<div id ="blockdenier" class="row"> 
-    <div class="col-sm-6">
-        <?=
-        CheckBoxWidget::widget(['label' => 'Connait le denier ?', 'model' => $model, 'field' => '_CONNAIT_LE_DENIER', 'form' => $form]);
-        ?>    
+<div id ="blockcomapp" class="row">
+    <div class="col-sm-12">
+        <?= LabelWidget::widget(['label' => 'Commentaire appel lors de l\'appel Conquête', 'model' => $model, 'field' => 'A_COMMENTAIRE_APPEL']) ?>
+        <br/>
     </div>
 </div>
+<div id ="blockcomdon" class="row">
+    <div class="col-sm-12">
+        <?= LabelWidget::widget(['label' => 'Commentaire donateur lors de l\'appel Conquête', 'model' => $model, 'field' => 'A_COMMENTAIRE_DONATEUR']) ?>
+        <br/>
+    </div>
+</div>
+<?= LineWidget::widget() ?>
 <div id ="blockinterlocuteur" class="row"> 
     <div class="col-sm-3">
         <?=
@@ -43,7 +42,6 @@ use app\scripts\CONQUETE_TULLE\v1\models\custommodel;
         <?= $form->field($model, 'INTERLOCUTEUR')->textInput(['readonly' => ($model->scenario <> 'default' || $model->scenario == 'RO') ? true : false])->label('Si autre :') ?>
     </div>
 </div>
-
 <div id ="blockquestion" class="row"> 
     <div class="col-sm-6">
         <?=
@@ -55,4 +53,5 @@ use app\scripts\CONQUETE_TULLE\v1\models\custommodel;
         $form->field($model, '_IMAGE_EVEQUE')->dropDownList(custommodel::getImageEveque())->label('Image de l\'évêque');
         ?>    
     </div>
+
 </div>
