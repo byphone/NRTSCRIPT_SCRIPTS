@@ -15,7 +15,6 @@ use app\components\FormWidgets\DateWidget;
 use app\components\FormWidgets\YesNoWidget;
 use app\components\FormWidgets\ButtonWidget;
 
-
 /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
 ?>
 <script type="text/javascript" >
@@ -65,9 +64,69 @@ use app\components\FormWidgets\ButtonWidget;
             $NixxisQualification = $NixxisQualifications[$model_qualifications->qualificationId];
 
             switch ($model->scenario) {
-                // case '...' :
-                //      
-                //      break;
+                case 'REFUS_AUTRE' :
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>RAISON DU REFUS</b></h5></div>
+                    </div>
+                    <div class = "row" >
+                    <div class = "col-sm-12">';
+                    echo $form->field($model, '_RAISON_REFUS')->textarea(['rows' => 3, 'maxlength' => '255'])->label('Attention, limite à 255 charactères');
+                    echo '<br/>
+                    </div>
+                    </div>';
+                    break;
+                case 'PROMESSE':
+//                    echo SelectWidget::widget(['label' => "Promesse", 'model' => $model, 'field' => 'NV_PROMESSE', 'form' => $form, 'data' => $model::getPromesses()]);
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>PAS RECU</b></h5></div>
+                    </div>';
+                    echo $form->field($model, 'NV_PROMESSE')->dropDownList(\app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26::getPromesses(), [
+                        'prompt' => 'Select type',
+                        'onchange' => '
+                                                    $.post( "index.php?r=' . $Module::getRoute() . '/default/list-periodicites&id=' . '"+$(this).val(), function( data ) {
+                                                        $( "select#data234f752d390140b981beaa21a6171d26-nv_periodicite" ).html( data );
+                                                    });'
+                    ])->label('Promesse');
+
+                    echo TextBoxWidget::widget(['label' => "Montant", 'model' => $model, 'field' => 'NV_MONTANT', 'form' => $form, 'ro' => false]);
+                    echo SelectWidget::widget(['label' => "Périodicité", 'model' => $model, 'field' => 'NV_PERIODICITE', 'form' => $form, 'data' => \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26::getPeriodicite($model->NV_PROMESSE)]);
+                    echo '<label class="control-label" for=rown_datepa">Date du prochain prélévement</label>';
+                    echo '<div id="rown_datepa" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_DAY')->textInput()->label('Jour') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_MONTH')->dropDownList($model::getMonths(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Mois') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATEPA_YEAR')->dropDownList($model::getYears(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Année') . '</div>';
+                    echo '</div><br/>';
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '<label class="control-label" for=rown_dateretour">Date de retour</label>';
+                    echo '<div id="rown_dateretour" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATERETOUR_DAY')->textInput()->label('Jour') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATERETOUR_MONTH')->dropDownList($model::getMonths(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Mois') . '</div>';
+                    echo '<div class = "col-sm-3" > ' . $form->field($model, 'N_DATERETOUR_YEAR')->dropDownList($model::getYears(), ['prompt' => '--Select--'], ['class' => 'form-control inline-block updateindicator'])->label('Année') . '</div>';
+                    echo '</div><br/>';
+                    echo '<div id="rowrelances" class = "row" >';
+                    echo '<div class = "col-sm-6" style="color:red"> ' . CheckBoxWidget::widget(['label' => 'Cochez la case si la personne ne souhaite pas être relancé : ', 'model' => $model, 'field' => '_NE_PAS_RELANCER', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '</div><br/>';
+                    echo '</div> 
+                    </div>';
+                    break;
+                case 'VA/DEJAENVOYE':
+//                    echo SelectWidget::widget(['label' => "Promesse", 'model' => $model, 'field' => 'NV_PROMESSE', 'form' => $form, 'data' => $model::getPromesses()]);
+                    echo'
+                    <div class="row" style="background-color: #113060; color: #ffffff; height: 35px; margin-left: 0px; margin-right: 0px; margin-top: 5px;">
+                        <div class="col-sm-12" style="text-align: center;"><h5><b>VA ENVOYER / DEJA ENVOYE</b></h5></div>
+                    </div>';
+                    echo '<div id="rown_depot_paroisse" class = "row" >';
+                    echo '<div class = "col-sm-3" > ' . CheckBoxWidget::widget(['label' => 'Dépot en paroisse : ', 'model' => $model, 'field' => '_DEPOT_PAROISSE', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    echo '<div id="rowrelances" class = "row" >';
+                    echo '<div class = "col-sm-6" style="color:red"> ' . CheckBoxWidget::widget(['label' => 'Cochez la case si la personne ne souhaite pas être relancé : ', 'model' => $model, 'field' => '_NE_PAS_RELANCER', 'form' => $form]) . '</div>';
+                    echo '</div>';
+                    break;
             }
 
             switch ($model_qualifications->scenario) {

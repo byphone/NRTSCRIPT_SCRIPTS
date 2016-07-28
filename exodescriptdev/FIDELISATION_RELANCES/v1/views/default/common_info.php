@@ -1,7 +1,6 @@
 
 <?php
-        /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
-
+/* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
 
 use yii\helpers\ArrayHelper;
 use app\components\FormWidgets\LabelWidget;
@@ -11,6 +10,11 @@ use app\components\FormWidgets\LabelWidget;
 </div>
 <div class="row" style="background-color: #113060; color: #ffffff; font-size: 14px;">
     <?= LabelWidget::widget(['label' => 'Identifiant :', 'model' => $model, 'field' => 'IDENTIFIANT1']) ?>    
-    <?= LabelWidget::widget(['label' => 'Code Média  :', 'model' => $model, 'field' => 'CODE_MEDIA']) ?>  
+    <?= LabelWidget::widget(['label' => 'Code Média  :', 'model' => $model, 'field' => 'CODE_MEDIA']) ?>
+    <?= LabelWidget::widget(['label' => 'Interlocuteur  :', 'model' => $model, 'field' => '_INTERLOCUTEUR']) ?>
+    <?= LabelWidget::widget(['label' => 'Dépôt paroisse  :', 'model' => $model, 'value' => $model->_DEPOT_PAROISSE == True ? 'Oui' : 'Non']) ?>
+    <?= LabelWidget::widget(['label' => 'Promesse :', 'model' => $model, 'field' => 'SOURCE_QUALIFICATION']) ?>
+    <?= LabelWidget::widget(['label' => 'Montant :', 'model' => $model, 'field' => 'N_MONTANT']) ?>
+    <?= LabelWidget::widget(['label' => 'Périodicité :', 'model' => $model, 'value' => $model->GetTextCycle($model->N_PERIODICITE)]) ?>  
+    <?= LabelWidget::widget(['label' => 'Date de notre appel :', 'model' => $model, 'field' => 'SOURCE_DATETIME']) ?>
 </div>
-
