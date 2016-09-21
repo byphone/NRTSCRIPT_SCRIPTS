@@ -34,7 +34,7 @@ class custommodel extends \app\models\Nixxis\Data {
 
         if ($this->scenario == 'PROMESSE') {
             if (!empty($this->N_DATERETOUR_DAY) && !empty($this->N_DATERETOUR_MONTH) && !empty($this->N_DATERETOUR_YEAR)) {
-                $this->_DATE_RETOUR = $this->N_DATERETOUR_DAY . '/' . $this->N_DATERETOUR_MONTH . '/' . $this->N_DATERETOUR_YEAR;
+                $this->_DATE_RETOUR = $this->N_DATERETOUR_YEAR . '-' . $this->N_DATERETOUR_MONTH . '-' . $this->N_DATERETOUR_DAY;
             } else {
                 $this->_DATE_RETOUR = '';
             }

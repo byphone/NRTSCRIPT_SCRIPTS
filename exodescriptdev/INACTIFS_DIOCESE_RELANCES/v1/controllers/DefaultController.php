@@ -1,6 +1,6 @@
 <?php
 
-namespace app\scripts\FIDELISATION_RELANCES\v1\controllers;
+namespace app\scripts\INACTIFS_DIOCESE_RELANCES\v1\controllers;
 
 use Yii;
 use app\models\NixxisParameters;
@@ -10,35 +10,35 @@ use app\components\NrtLogger;
 class DefaultController extends \app\controllers\ScriptController {
 
     private function AffectScenario($NixxisQualificationId, &$model, &$model_qualifications) {
-        /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
+        /* @var $model \app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models\DATA3da9b560fec24bdb906e138cca99681c */
         /* @var $model_qualifications \app\models\NixxisQualifications */
 
         switch ($NixxisQualificationId) {
-            case '30d382d1e68042e593fbfdb8efd66229': //REFUS AUTRE A RENSEIGNER
+            case '391d0558aaaf4ab2964f48557422d4b3': //REFUS AUTRE A RENSEIGNER
                 $model->scenario = 'REFUS_AUTRE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
-            case 'db94bfe45b6a44f9902b0959568f9752': //PAS RECU R1
+            case 'e35d55a794774beabbb5015481197eea': //PAS RECU R1
                 $model->scenario = 'PROMESSE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
-            case '7843fe322ae1491ba902d1d46a747561': //PAS RECU R2
+            case 'dc85e346b25f4292b9443b92646554f9': //PAS RECU R2
                 $model->scenario = 'PROMESSE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
-            case 'e1a34ba3de2446c5af11a2e885569c22': //VA ENVOYER R1
+            case 'd7378f7e871c416db874c6c091473c8f': //VA ENVOYER R1
                 $model->scenario = 'VA/DEJAENVOYE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
-            case '3a0e0cd515184baf91ba1b863dd5666d': //VA ENVOYER R2
+            case 'bcfda06c711c47689c196e6cadea3a34': //VA ENVOYER R2
                 $model->scenario = 'VA/DEJAENVOYE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
-            case '5043b65dc7144a9bac71b3a97b21f271': //DEJA ENVOYE R1
+            case '6b4da7ee3fed45bea6bbc37b4d801608': //DEJA ENVOYE R1
                 $model->scenario = 'VA/DEJAENVOYE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
-            case 'f1c6a780a81b40afb2fe05d6ec105272': //DEJA ENVOYE R2
+            case 'a7b3c1aa04ee4e589b31a411f06c6927': //DEJA ENVOYE R2
                 $model->scenario = 'VA/DEJAENVOYE';
                 $model_qualifications->nextstep = 'qualifications';
                 break;
@@ -50,9 +50,9 @@ class DefaultController extends \app\controllers\ScriptController {
     }
 
     public function actionListPeriodicites($id) {
-        /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
+        /* @var $model \app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models\DATA3da9b560fec24bdb906e138cca99681c */
         /* @var $model_qualifications \app\models\NixxisQualifications */
-        $data = \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26::getPeriodicite($id);
+        $data = \app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models\DATA3da9b560fec24bdb906e138cca99681c::getPeriodicite($id);
 
         if (count($data)) {
             foreach ($data as $key => $description) {
@@ -64,7 +64,7 @@ class DefaultController extends \app\controllers\ScriptController {
     }
 
     public function actionIndex() {
-        /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
+        /* @var $model \app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models\DATA3da9b560fec24bdb906e138cca99681c */
         /* @var $model_qualifications \app\models\NixxisQualifications */
 
         $start = microtime(true);
@@ -87,7 +87,7 @@ class DefaultController extends \app\controllers\ScriptController {
     }
 
     public function actionStep2($Internal__id__) {
-        /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
+        /* @var $model \app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models\DATA3da9b560fec24bdb906e138cca99681c */
         /* @var $model_qualifications \app\models\NixxisQualifications */
 
         $start = microtime(true);
@@ -148,7 +148,7 @@ class DefaultController extends \app\controllers\ScriptController {
     }
 
     public function actionQualify($Internal__id__) {
-        /* @var $model \app\scripts\FIDELISATION_RELANCES\v1\models\DATA234f752d390140b981beaa21a6171d26 */
+        /* @var $model \app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models\DATA3da9b560fec24bdb906e138cca99681c */
         /* @var $model_qualifications \app\models\NixxisQualifications */
 
         $start = microtime(true);

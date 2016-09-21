@@ -1,6 +1,6 @@
 <?php
 
-namespace app\scripts\FIDELISATION_RELANCES\v1\models;
+namespace app\scripts\INACTIFS_DIOCESE_RELANCES\v1\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
