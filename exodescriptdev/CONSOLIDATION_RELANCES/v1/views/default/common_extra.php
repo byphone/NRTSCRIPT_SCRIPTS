@@ -33,13 +33,6 @@ use \app\scripts\CONSOLIDATION_RELANCES\v1\models\custommodel;
     </div>
 </div>
 <?= LineWidget::widget() ?>
-<div id ="blockdenier" class="row"> 
-    <div class="col-sm-6">
-        <?=
-        CheckBoxWidget::widget(['label' => 'Connait le denier ?', 'model' => $model, 'field' => '_CONNAIT_LE_DENIER', 'form' => $form]);
-        ?>    
-    </div>
-</div>
 <div id ="blockinterlocuteur" class="row"> 
     <div class="col-sm-3">
         <?=
